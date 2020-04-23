@@ -100,7 +100,7 @@ impl<B> RequestBuilder<B> {
         self
     }
 
-    /// Associated a list of pairs to query parameters.
+    /// Associate a list of pairs to query parameters.
     ///
     /// The same key can be used multiple times.
     ///
