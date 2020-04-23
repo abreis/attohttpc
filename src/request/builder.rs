@@ -377,6 +377,16 @@ impl<B> RequestBuilder<B> {
         self.base_settings.client_config = Some(client_config.into()).into();
         self
     }
+
+    /// Returns a reference to this builder's request method.
+    pub fn method(&self) -> &Method {
+        &self.method
+    }
+
+    /// Returns a reference to this builder's request URL.
+    pub fn url(&self) -> &Url {
+        &self.url
+    }
 }
 
 impl<B: Body> RequestBuilder<B> {
@@ -419,6 +429,11 @@ impl<B: Body> RequestBuilder<B> {
     /// Send this request directly.
     pub fn send(self) -> Result<Response> {
         self.try_prepare()?.send()
+    }
+
+    /// Returns a mutable reference to this builder's request message body.
+    pub fn body_mut(&mut self) -> &mut B {
+        &mut self.body
     }
 }
 
